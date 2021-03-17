@@ -12,7 +12,7 @@ year INT,
 annual_births INT
 );
 
-SELECT births.year, births.country, annual_births, neonatal_deaths
+SELECT births.year, births.country, annual_births, neonatal_deaths AS deaths_births_country
 FROM births
 JOIN neonatal_deaths
 ON births.year = neonatal_deaths.year
