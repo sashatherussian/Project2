@@ -1,16 +1,19 @@
-DROP TABLE IF EXISTS deaths_US
-CREATE TABLE neonatal_deaths_US(
-year INT PRIMARY KEY,
+DROP TABLE IF EXISTS neonatal_deaths
+CREATE TABLE neonatal_deaths(
+country TEXT,
+year INT ,
 neonatal_deaths INT
 );
 
-DROP TABLE IF EXISTS births_US
-CREATE TABLE births_US(
-year INT PRIMARY KEY,
+DROP TABLE IF EXISTS births
+CREATE TABLE births(
+country TEXT,
+year INT,
 annual_births INT
 );
 
-SELECT births_us.year, annual_births, neonatal_deaths
-FROM births_us
-JOIN neonatal_deaths_us
-ON births_us.year = neonatal_deaths_us.year;
+SELECT births.year, births.country, annual_births, neonatal_deaths
+FROM births
+JOIN neonatal_deaths
+ON births.year = neonatal_deaths.year
+AND births.country = neonatal_deaths.country;
